@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  crudapp:
+    build: crud_app
+    ports:
+      - 5000:3000
+    links: 
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports: 
+      - 27017:27017
+    volumes: 
+      - ./data:/data/db
+
+
